@@ -18,4 +18,4 @@ ENV COLLECTION_NAME="default-collection"
 ENV EMBEDDING_MODEL="sentence-transformers/all-MiniLM-L6-v2"
 
 # Run the server with streamable transport
-CMD ["uvx", "mcp-server-qdrant", "--transport", "streamable-http", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvx", "mcp-server-qdrant", "--transport", "streamable-http"]
