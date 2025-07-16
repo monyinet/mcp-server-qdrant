@@ -12,10 +12,10 @@ RUN uv pip install --system --no-cache-dir mcp-server-qdrant
 EXPOSE 8000
 
 # Set environment variables with defaults that can be overridden at runtime
-ENV QDRANT_URL=""
-ENV QDRANT_API_KEY=""
+ENV QDRANT_URL="http://localhost:6333"
+ENV QDRANT_API_KEY="ChnQd6c8db77OHcb5KjBIJSY4xINayAAFt7EEack7hNVOG74C9ZiFJU3Z21W4NJV"
 ENV COLLECTION_NAME="default-collection"
 ENV EMBEDDING_MODEL="sentence-transformers/all-MiniLM-L6-v2"
 
-# Run the server with SSE transport
-CMD uvx mcp-server-qdrant --transport sse
+# Run the server with streamable transport
+CMD ["uvx", "mcp-server-qdrant", "--transport", "streamable-http", "--host", "0.0.0.0", "--port", "8000"]
